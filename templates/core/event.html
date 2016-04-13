@@ -1,0 +1,20 @@
+{% extends 'event/base.html' %}
+{% load thumbnail %}
+
+{% block title %}{{ page.title }}{% endblock %}
+{% block description %}{{ page.description }}{% endblock %}
+{% block custom_css %}
+    <style>
+        {{ page.custom_css|default_if_none:'' }}
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    {% for item in content %}
+
+        {% include 'includes/item.html' with item=item %}
+
+    {% endfor %}
+
+{% endblock %}

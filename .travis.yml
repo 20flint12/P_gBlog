@@ -1,0 +1,16 @@
+language: python
+python: 3.4
+cache: pip
+script: python manage.py test
+sudo: false
+notifications:
+  slack: djangogirls:f5ZWSNUTwKp1C8L8rr3PYjg7
+cache:
+  directories:
+    - $HOME/virtualenv
+addons:
+  postgresql: "9.3"
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database djangogirls;' -U postgres

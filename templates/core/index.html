@@ -1,0 +1,226 @@
+{% extends 'global/base.html' %}
+{% load staticfiles %}
+
+{% block extra_js %}
+    <script type="text/javascript" src="{% static 'js/global.js' %}?refresh_js=1"></script>
+{% endblock %}
+
+{% block content %}
+
+    <section id="box-with-picture">
+      <div class="black-canvas">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1>
+                        We inspire women to fall in love with programming.
+                    </h1>
+                    <p>
+                        Django Girls organize free Python and Django workshops, create open sourced online tutorials and curate amazing first experiences with technology.
+                    </p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+        <section id="about">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>What is Django Girls?</h2>
+                    <p>
+                        Django Girls is a <a href="{% url 'core:foundation' %}">non-profit organization</a> and a community that empowers and helps women to organize free, one-day programming workshops by providing tools, resources and support. We are a volunteer run organization with hundreds of people contributing to bring more amazing women into the world of technology. We are making technology more approachable by creating simpler tools and resources designed with empathy.
+                    </p>
+                    <p>
+                        During each of our events, 30-60 women build their first web application using HTML, CSS, Python and Django.
+                    </p>
+                    {# <p><a href="">Learn more about Django Girls »</a></p> #}
+                </div>
+                <div class="col-md-6">
+                  <iframe src="//player.vimeo.com/video/112325567?title=0&amp;byline=0&amp;portrait=0&amp;color=ff9933" width="585" height="329" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Django Girls impact</h2>
+                    <p>
+                        Since 2014, an army of <span class="highlighted-number">{{ organizers_count|default_if_none:'0' }} volunteers</span> in the Django Girls community organized <span class="highlighted-number">{{ all_events_count|default_if_none:'0' }} events.</span> We've been to <span class="highlighted-number">{{ cities_count|default_if_none:'0' }} cities</span> in <span class="highlighted-number">{{ country_count|default_if_none:'0' }} countries</span> (<a href="{% url 'core:events_map' %}">see them all on a map</a>).
+                    </p>
+                    <p>
+                        A total of <span class="highlighted-number">{{ attendees_sum|default_if_none:'0' }} incredible women attended</span> events organized by members of our community.
+                    </p>
+                    <p><a href="{% url 'core:year_2015' %}">Read our Annual Report to learn about the impact we make »</a></p>
+                </div>
+
+               <div class="col-md-6">
+                    <h2>Bring Django Girls to your city!</h2>
+                    <p>Is there no Django Girls event in your city? You can help make it happen!</p>
+                    <p>We open sourced the <a href="http://organize.djangogirls.org/">Organizer Manual</a> that provides you with all information required to organize Django Girls workshop. By volunteering to organize, you're joining a vibrant and supportive community of {{ organizers_count|default_if_none:'0' }} organizers all over the world!</p>
+                    <p><a class="btn" href="{% url 'core:organize' %}">Apply to organize a workshop</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="events">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>
+                        Upcoming events
+                        <a class="ical btn btn-default btn-xs" href="{% url 'core:icalendar' %}">ICAL</a>
+                        <a class="ical btn btn-default btn-xs" href="{% url 'core:events_map' %}">MAP</a>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="upcoming-events">
+                <div class="row-container">
+                    <div class="row">
+                    {% for event in future_events %}
+                        {% include 'includes/_event.html' with event=event %}
+                        {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+                    {% endfor %}
+                    </div>
+                </div>
+                <div class="show-more"><a href="javascript:;">Show all {{ future_events_count }} upcoming events »</a></div>
+            </div>
+        </section>
+
+        <section id="story">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Badass Django Ladies</h2>
+                    <p>Each week we try to introduce one badass lady who use Python or Django and highlight her work:</p>
+
+                    <div class="row">
+                    {% for story in stories %}
+                        {% include 'includes/_story.html' with story=story %}
+                    {% endfor %}
+                    </div>
+
+                    <p><a href="{% url 'core:stories' %}">Read all Django Stories »</a></p>
+                </div>
+                <div class="col-md-6">
+                    <h2>Latest from our blog</h2>
+                    {% for blog in blogposts %}
+                    <a href="{{ blog.post_url }}" target="_blank" class="post-title">{{ blog.name }}</a>
+                    <p class="post-content">{{ blog.content|striptags|truncatewords:25 }} <a href="{{ blog.post_url }}" target="_blank">Read all »</a></p>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <section id="support">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Support our work</h2>
+                    <p>Django Girls is a volunteer run organization, and we depend on your support to make it happen.</p>
+                    <p class="support-stats">
+                        <span class="highlighted-number">${{ patreon_stats.amount_raised }}</span> of <span class="highlighted-number">${{ patreon_stats.GOAL }}</span> monthly goal pledged
+                    </p>
+                    <div class="support-bar">
+                      <div class="pledge" style="width: {{ patreon_stats.percentage_of_goal }}%">{{ patreon_stats.percentage_of_goal }}%</div>
+                    </div>
+                    <a class="btn" href="http://patreon.com/djangogirls">Make a recurring donation on Patreon</a>
+                    <p class="partnership">
+                        You can also send us a one time donation with <a href="https://www.paypal.com/uk/webapps/mpp/search-cause?charityId=129929&s=3">Paypal Giving Funds</a>.
+                        If you would like to discuss a bigger partnership, <a href="{% url 'core:contact' %}">please get in touch</a>.
+                    </p>
+                </div>
+
+                 <div class="col-md-6">
+                    <h2>Stay up to date!</h2>
+                    <p>
+                        Subscribe to Django Girls Dispatch to receive the latest and greatest from our community every two weeks, straight to your inbox!
+                    </p>
+                    <p>
+                      <form action="http://test2975.createsend.com/t/i/s/tykhhd/" method="post" id="subForm" class="newsletter">
+                          <input id="fieldEmail" name="cm-tykhhd-tykhhd" type="email" placeholder="you@reaweso.me" required />
+                          <input type="submit" value="Subscribe" />
+                      </form>
+                    </p>
+                    <p>
+                        <a href="{% url 'core:newsletter' %}">See the Django Girls Dispatch archives »</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Buy a t-shirt!</h2>
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        Help us spread the word about Django Girls while supporting us!
+                    </p>
+                    <p>We now have three awesome designs for fitted and straight-cut t-shirts: <a href="https://store.djangogirls.org/collections/frontpage/products/this-is-what-a-programmer-looks-like">"This is What a Programmer Looks Like"</a>, <a href="https://store.djangogirls.org/collections/frontpage/products/fitted-code-like-a-girl-t-shirt">"Code like a Girl"</a> and <a href="https://store.djangogirls.org/collections/frontpage/products/fitted-django-girls-t-shirt"> Django Girls logo</a>.</p>
+                    <p>
+                         All proceeds will go to two new projects:
+                        <ul>
+                    <li>Django Girls Summit: a two day unconference where organizers could meet and share their experiences about Django Girls workshops.</li>
+                    <li>Django Girls Organizer Starter Kit: a swag boxes for organizers full of stickers, buttons and tattoos!</li>
+                        </ul>
+                    </p>
+                    <p><b>To celebrate the launch with us, you can use code OMGYAY! to get a discount of 15% for any order made until end of March!</b></p>
+
+                    <p><a href="https://store.djangogirls.org/" class="btn">Get your t-shirt today!</a></p>
+
+                </div>
+                <div class="col-md-6">
+                    <a href="https://store.djangogirls.org/">
+                        <img src="{% static 'img/global/tshirt.png' %}" alt="Mint 'Code like a Girl' and cranberry 'This is what a programmer looks like' t-shirts."/>
+                    </a>
+                </div>
+            </div>
+            </section>
+
+        <section id="supporters">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>They already support us! 💕</h2>
+                    <p>Those incredible companies made a pledge to diversity and are actively helping us to change the ratio in the tech industry. <br /> If you wish to join them, support us on <a href="https://www.patreon.com/djangogirls">Patreon</a> or <a href="{% url 'core:contact' %}">drop us a line</a>.</p>
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3">
+                  <a href="https://www.elastic.co/">
+                      <img src="{% static 'img/global/supporters/elastic.png' %}" alt="Elastic" />
+                  </a>
+              </div>
+                <div class="col-md-3">
+                    <a href="http://lincolnloop.com/">
+                        <img src="{% static 'img/global/supporters/lincolnloop.png' %}" alt="Lincoln Loop" />
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="http://www.divio.ch/en/">
+                        <img src="{% static 'img/global/supporters/divio.png' %}" alt="Divio" style="margin-top: 25px" />
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="https://p.ota.to/jobs/">
+                        <img src="{% static 'img/global/supporters/potato.svg' %}" alt="Potato" style="height: 120px;" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3">
+                  <a href="http://pythonanywhere.com/">
+                      <img src="{% static 'img/global/supporters/pythonanywhere.png' %}" alt="Python Anywhere" style="margin-top: 25px" />
+                  </a>
+              </div>
+                <div class="col-md-3">
+                    <a href="https://www.mandrill.com/">
+                        <img src="{% static 'img/global/supporters/mandrill.png' %}" alt="Mandrill" style="margin-top: 0px" />
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+{% endblock %}
