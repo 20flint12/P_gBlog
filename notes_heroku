@@ -1,4 +1,4 @@
-git push heroku -u collector:master
+git push heroku -u plechan121:master
 
 heroku logs --tail
 heroku logs -t
@@ -39,13 +39,6 @@ heroku pg:credentials HEROKU_POSTGRESQL_GRAY_URL --reset
 
 
 
-
-admin
-12345trewq
-
-https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-ubuntu-14-04
-manage.py migrate --run-syncdb
-heroku run manage.py migrate --run-syncdb
 
 heroku run python manage.py migrate
 heroku run python manage.py createsuperuser

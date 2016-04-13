@@ -1,4 +1,4 @@
-web: gunicorn mysite.wsgi --log-file - --log-level debug
+web: gunicorn djangogirls.wsgi --log-file - --log-level debug
 
 #clock: python mysite/clock.py
 
