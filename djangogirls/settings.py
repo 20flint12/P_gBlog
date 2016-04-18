@@ -17,6 +17,8 @@ SITE_ID = 1
 
 # Application definition
 
+# LOGIN_REDIRECT_URL = '/'
+
 INSTALLED_APPS = (
     'suit',
     #'suit_redactor',
@@ -47,6 +49,8 @@ INSTALLED_APPS = (
     'applications',
     'jobs',
     'patreonmanager.apps.PatreonManagerConfig',
+
+    # 'blog',
 )
 
 MIDDLEWARE_CLASSES = (
