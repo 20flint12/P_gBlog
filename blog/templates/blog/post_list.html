@@ -11,6 +11,15 @@
             <!--<h1><a href="">{{ post.title }}</a></h1>-->
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaks }}</p>
+
+            <!--<pre>-->
+            <!--&lt;{{ post.link }}&gt;-->
+            <!--</pre>-->
+
+
+            <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/2yEN1Ku7qz4" frameborder="0" allowfullscreen></iframe>-->
+
+            <p>{{ post.link|linebreaks }}</p>
             <a href="{% url 'blog.views.post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
             <!--<a href="{% url 'blog.views.post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>-->
         </div>
