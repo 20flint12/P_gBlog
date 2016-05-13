@@ -100,3 +100,9 @@ def comment_remove(request, pk):
     post_pk = comment.post.pk
     comment.delete()
     return redirect('blog.views.post_detail', pk=post_pk)
+
+
+###############################################################################
+
+def services(request):
+    return render(request, 'templates/static_pages/services_page.html')

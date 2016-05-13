@@ -27,6 +27,12 @@
         </a></h1>
     </div>
 
+    <div class="page-wrap">
+        {% block menu %}
+            {% include 'global/my_menu.html' %}
+        {% endblock %}
+    </div>
+
     <div class="content">
         <div class="row">
             <div class="col-md-8">
@@ -35,14 +41,6 @@
             </div>
         </div>
     </div>
-
-    <div class="page-wrap">
-        {% block menu %}
-            {% include 'global/my_menu.html' %}
-        {% endblock %}
-    </div>
-
-
 
 </body>
 </html>
