@@ -5,14 +5,19 @@
         <div class="col-md-12">
             <nav role="navigation" class="clearfix">
                 <div class="logo">
+                    {% comment "Optional note" %}
                     <a href="/">
                         <img src="{% static 'img/global/logo.png' %}" alt="Django Girls" />
                     </a>
+                    {% endcomment %}
                 </div>
 
                 <ul>
-                    <li><a href="https://www.patreon.com/djangogirls">Support us</a></li>
-                    <li><a href="http://blog.djangogirls.org/">Blog</a></li>
+                    <!--<li><a href="https://www.patreon.com/djangogirls">Support us</a></li>-->
+                    <li><a href="{% url 'post_list' %}">Список обсуждений</a></li>
+                    <li><a href="{% url 'services' %}">Полезные телефоны</a></li>
+                    <!--<li><a href="{% url 'services' %}">Полезная информация</a></li>-->
+                    <li><a href="{% url 'contacts' %}">Контакты</a></li>
                 </ul>
             </nav>
         </div>

@@ -6,6 +6,7 @@ from django.shortcuts import render, get_object_or_404
 from .forms import PostForm, CommentForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 
 
 def post_list(request):
@@ -106,3 +107,9 @@ def comment_remove(request, pk):
 
 def services(request):
     return render(request, 'templates/static_pages/services_page.html')
+
+
+def contacts(request):
+    # text = "<h2>email:</h2><h1>email: plechan121@gmail.com</h1>"
+    # return HttpResponse(text)
+    return render(request, 'templates/static_pages/contacts_page.html')
