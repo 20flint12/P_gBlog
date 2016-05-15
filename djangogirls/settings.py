@@ -16,7 +16,7 @@ import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-print "BASE_DIR=", BASE_DIR, "vs ", os.path.dirname(os.path.dirname(__file__))
+# print "BASE_DIR=", BASE_DIR, "vs ", os.path.dirname(os.path.dirname(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,9 +26,12 @@ print "BASE_DIR=", BASE_DIR, "vs ", os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'cumey3t!e_h-smbl91b&%8b#wd9f)c!vda9_%425$_g6urskx_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
+# DEBUG = os.getenv('DJANGO_DEBUG') != 'FALSE'
+print "DEBUG=", DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 LOGIN_REDIRECT_URL = '/'
 

@@ -42,7 +42,7 @@ heroku pg:credentials HEROKU_POSTGRESQL_GRAY_URL --reset
 
 
 heroku pg:reset DATABASE_URL
-heroku run python manage.py makemigrations
+heroku run python manage.py makemigrations --app plekhanovskaya121
 heroku run python manage.py migrate --app plekhanovskaya121
 
 heroku run python manage.py createsuperuser
