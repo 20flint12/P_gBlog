@@ -45,7 +45,10 @@ heroku pg:reset DATABASE_URL
 heroku run python manage.py makemigrations --app plekhanovskaya121
 heroku run python manage.py migrate --app plekhanovskaya121
 
-heroku run python manage.py createsuperuser
+heroku run python manage.py makemigrations --app plechan121
+heroku run python manage.py migrate --app plechan121
+
+heroku run python manage.py createsuperuser --app plechan121
 
 @@@
 http://stackoverflow.com/questions/14285854/cannot-create-a-new-table-after-drop-schema-public
