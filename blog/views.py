@@ -108,3 +108,32 @@ def contacts(request):
     # text = "<h2>email:</h2><h1>email: plechan121@gmail.com</h1>"
     # return HttpResponse(text)
     return render(request, 'templates/static_pages/contacts_page.html')
+
+
+def plan(request):
+    # text = "<h2>email:</h2><h1>email: plechan121@gmail.com</h1>"
+    # return HttpResponse(text)
+
+    flats = range(338, 0, -1)
+    floors = 26
+
+    return render(request, 'templates/static_pages/building_plan.html', {'flats': flats, 'floors': floors})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

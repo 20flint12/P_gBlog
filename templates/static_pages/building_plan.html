@@ -1,0 +1,108 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+    <div class="container without-background" id="flatpage">
+        <div id="value" class="row">
+            <br class="col-md-12">
+            <h1>Схема расположения квартир дома</h1>
+
+            {% comment %}
+                {% lorem 2 w random %}
+                <br>
+                It is {% now "jS F Y H:i" %}
+                <br>
+                It is the {% now "jS \o\f F" %}
+                {{ value|date:"D d M Y" }} {{ value|time:"H:i" }}
+                {{ flats|unordered_list }}
+            {% endcomment %}
+
+
+            <table align="center" border="4" width="100%">
+
+            <tr>
+                <th align="center" colspan="2">Стояк1</th>
+                <th align="center" colspan="4">Стояк2</th>
+                <th align="center" colspan="4">Стояк3</th>
+                <th align="center" colspan="4">Стояк4</th>
+                <th align="center" colspan="4">Стояк5</th>
+                <th align="center" colspan="4">Стояк6</th>
+                <th align="center" colspan="4">Стояк7</th>
+                <th align="center" colspan="2">Стояк8</th>
+            </tr>
+
+            {% for item in flats %}
+
+                {% if forloop.first %}
+                    <tr padding="5px">
+                    <td align="center" padding="5px">КухняЛев</td>
+                {% endif %}
+
+                <td align="center" padding="5px">{{ item }}</td>
+
+                {% if forloop.counter|divisibleby:floors %}
+
+                    <td align="center" padding="5px">КухняПрав</td>
+
+                    </tr>
+                    <tr padding="5px">
+
+                    {% if forloop.last %}
+                    {% else %}
+                        <td align="center" padding="5px">КухняЛев</td>
+                    {% endif %}
+
+                {% endif %}
+
+                {% if forloop.last %}
+                    </tr>
+                {% endif %}
+
+            {% endfor %}
+            </table>
+
+
+
+        {% comment %}
+            <table>
+                {% for item in flats %}
+                    {% cycle 'row' '' as row silent %}
+                    {% if row %}<tr>{% endif %}
+                        <td>
+                            {{ item }}
+                        </td>
+                    {% if not row %}</tr>{% endif %}
+                {% endfor %}
+            </table>
+        {% endcomment %}
+
+
+
+        {% comment %}
+
+            <table>
+            {% for row in flats|floors:2 %}
+                <tr>
+                    {% for item in row %}
+                        <td>{{ item }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </table>
+
+
+
+            <table>
+            {% for row in flats %}
+                <tr>
+                    <td>{{ row }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+
+        {% endcomment %}
+
+
+        </div>
+    </div>
+{% endblock %}

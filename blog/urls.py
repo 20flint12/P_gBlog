@@ -19,6 +19,7 @@ urlpatterns = [
 
     url(r'^services/$', views.services, name='services'),
     url(r'^contacts/$', views.contacts, name='contacts'),
+    url(r'^plan/$',     views.plan,     name='plan'),   # building plan
 
 ]
 
