@@ -121,6 +121,10 @@ def plan(request):
 
 
 
+def adv(request):
+
+    return render(request, 'templates/static_pages/building_adv.html')
+
 
 
 
