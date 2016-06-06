@@ -19,7 +19,14 @@
 
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaks }}</p>
-        <p>{{ post.link|linebreaks }}</p>
+
+        {% autoescape off %}
+            {% if post.link %}
+                <br>
+                {{ post.link|linebreaks }}
+            {% endif %}
+        {% endautoescape %}
+
     </div>
 
     <hr>
