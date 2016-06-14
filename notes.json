@@ -1,0 +1,53 @@
+[
+{
+  "startup": [
+    "python manage.py runserver",
+    "export DATABASE_URL=postgres:///$(whoami)",
+    "heroku logs -p postgres -t"
+  ],
+  "heroku logs": [
+    "heroku logs --tail",
+    "heroku logs -t",
+    "heroku logs -p postgres -t"
+  ],
+  "links": {
+    "organisation": "",
+    "internal_comment": "",
+    "message_to_organisation": "",
+    "meetup_start_date": "2015-11-07T13:02:50Z",
+    "reviewer": 1,
+    "city": "Paris",
+    "meetup_type": "MEET",
+    "recurrence": "Every first thursday of the month",
+    "published_date": "2015-11-07T12:05:12.391Z",
+    "is_recurring": true,
+    "contact_email": "paris@pythonmeetup.com",
+    "review_status": "PUB",
+    "created": "2015-11-07T12:03:03.794Z",
+    "title": "Paris Python Meetup",
+    "description": "Sample description for a meetup.",
+    "website": "",
+    "country": "FR",
+    "expiration_date": "2016-01-06",
+    "meetup_end_date": null
+  },
+  "model": "jobs.meetup"
+},
+{
+  "pk": 2,
+  "fields": {
+    "organisation": "Barcelona Python Organisation",
+    "internal_comment": "",
+    "message_to_organisation": "",
+    "meetup_start_date": "line one\r\nline two",
+    "reviewer": 1,
+    "city": "Barcelon",
+    "meetup_type": "MEET",
+     "website": "",
+    "country": "ES",
+    "expiration_date": "2016-01-06",
+    "meetup_end_date": "2015-11-24T12:00:00Z"
+  },
+  "model": "jobs.meetup"
+}
+]
