@@ -27,12 +27,14 @@ SECRET_KEY = 'cumey3t!e_h-smbl91b&%8b#wd9f)c!vda9_%425$_g6urskx_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-# DEBUG = False
-DEBUG = os.getenv('DJANGO_DEBUG') != 'FALSE'
+DEBUG = False
+# DEBUG = os.getenv('DJANGO_DEBUG') != 'FALSE'
 print "DEBUG=", DEBUG
 
-# ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+# DEBUG404 = True
+ALLOWED_HOSTS = ['*'] # it works but not secure, so use
+# ALLOWED_HOSTS = ['localhost', 'IP adrs'] #if you are running locally, then run with python manage.py runserver --insecure.You can give your webserver here.
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 LOGIN_REDIRECT_URL = '/'
 
@@ -127,9 +129,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 #TIME_ZONE = 'UTC'
 TIME_ZONE = 'Europe/Moscow'
+TIME_ZONE = 'Europe/Kiev'
 
 
 USE_I18N = True

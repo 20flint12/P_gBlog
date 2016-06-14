@@ -46,6 +46,14 @@ urlpatterns = [
 
 ]
 
+# import settings
+# import os
+# if settings.DEBUG404:
+#     urlpatterns += [
+#     url(r'^static/(?P<path>.*)$', 'django.views.static.serve'),
+#     # {'document_root': os.path.join(os.path.dirname(__file__), 'static')} ),
+#     ]
+
 
 # http://stackoverflow.com/questions/1296629/django-template-tag-how-to-send-next-page-in-url-auth-logout
 
