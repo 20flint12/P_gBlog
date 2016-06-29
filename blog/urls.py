@@ -4,6 +4,7 @@ from django.conf.urls import url
 from . import views
 
 
+
 urlpatterns = [
     url(r'^$', views.post_list, name='post_list'),
     url(r'^post/(?P<pk>[0-9]+)/$', views.post_detail, name='post_detail'),
@@ -21,6 +22,21 @@ urlpatterns = [
     url(r'^contacts/$', views.contacts, name='contacts'),
     url(r'^plan/$',     views.plan,     name='plan'),   # building plan
     url(r'^adv/$',      views.adv,      name='adv'),    # advertising
+
+
+
+    # url(r'^hitcount/(?P<pk>\d+)/$', views.PostDetailView.as_view(), name="detail"),
+
+    url(r'^generic-detail-view-ajax/(?P<pk>\d+)/$', views.PostDetailJSONView.as_view(),
+        name="ajax"),
+    url(r'^hitcount-detail-view/(?P<pk>\d+)/$', views.PostDetailView.as_view(),
+        name="detail"),
+    url(r'^hitcount-detail-view-count-hit/(?P<pk>\d+)/$', views.PostCountHitDetailView.as_view(),
+        name="detail-with-count"),
+
+    # for our built-in ajax post view
+    # url(r'hitcount/', include('hitcount.urls', namespace='hitcount')),
+
 
 ]
 

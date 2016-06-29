@@ -31,7 +31,13 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.contrib.auth import views
+
+from blog import views
+
 admin.autodiscover()
+
+
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -43,6 +49,10 @@ urlpatterns = [
     # url(r'^accounts/logout/$', views.logout, name='logout', {'next_page': '/'}),
 
     url(r'', include('blog.urls')),
+
+
+
+
 
 ]
 

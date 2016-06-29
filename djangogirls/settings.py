@@ -26,8 +26,8 @@ print "BASE_DIR=", BASE_DIR, "vs ", os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'cumey3t!e_h-smbl91b&%8b#wd9f)c!vda9_%425$_g6urskx_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 # DEBUG = os.getenv('DJANGO_DEBUG') != 'FALSE'
 print "DEBUG=", DEBUG
 
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    "hitcount",
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -61,7 +62,9 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'middleware.filter_ip_middleware.FilterIPMiddleware'
+    'middleware.filter_ip_middleware.FilterIPMiddleware',
+
+    # "pageviews.middleware.PageViewsMiddleware",
 ]
 
 # ROOT_URLCONF = 'mysite.urls'
@@ -151,3 +154,16 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+
+
+
+
+# DJANGO HITCOUNT SPECIFIC VARIABLES ##########################################
+
+# As of v1.1.1 this setting is no longer needed
+# SESSION_SAVE_EVERY_REQUEST = True
+
+HITCOUNT_KEEP_HIT_ACTIVE = {'minutes': 60}
+HITCOUNT_HITS_PER_IP_LIMIT = 0  # unlimited
+HITCOUNT_EXCLUDE_USER_GROUP = ()  # not used
+HITCOUNT_KEEP_HIT_IN_DATABASE = {'seconds': 10}
