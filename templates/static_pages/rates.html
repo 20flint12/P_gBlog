@@ -1,0 +1,120 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+
+    <style>
+    table {
+        align: center;
+        border-collapse: collapse;
+        bordercolor: green;
+        bgcolor: yellow;
+    }
+
+    th, td {
+        padding: 8px;
+        style="text-align:center"
+    }
+    </style>
+
+    <br>
+    <h1>Комунальные тарифы на 1 июля 2016 года.</h1>
+    <br>
+
+    <table border="8" width="100%">
+        <tr>
+            <th>Номер</th>
+            <th style="text-align:center">Услуга</th>
+            <th style="text-align:center" >Тариф</th>
+            <th style="text-align:center">Норма</th>
+            <th style="text-align:center">Сумма</th>
+        </tr>
+        <tr>
+            <!--<td rowspan="2">Квартплата</td>-->
+            <td>1</td>
+            <td>Квартплата</td>
+            <td>2.23 грн - 1 м2</td>
+            <td>26.6 м2</td>
+            <td>60 грн</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Электроэнергия</td>
+            <td>0.57 грн. - до 100 кВт*ч<br>
+                0.99 грн. - от 101 КВт*ч до 600 </td>
+            <td>100 КВт*ч</td>
+            <td>57 грн</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Отопление</td>
+            <td>1256.65 грн. - 1 ГКал</td>
+            <td>зимой - 0.5 ГКал.<br>
+                <!--15 октября по 15 апреля - 2.5 ГКал-->
+                летом - 0</td>
+            <td>650 грн. - зимой<br>
+                0 грн. - летом
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Гарячая вода</td>
+            <td>75 грн. - 1м3</td>
+            <td>3 м3/чел</td>
+            <td>225 грн.</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Холодная вода</td>
+            <td>6.99 грн. - 1м3</td>
+            <td>6.1 м3/чел</td>
+            <td>42.64 грн.</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Канализация</td>
+            <td>3.72 грн. - 1м3</td>
+            <td>9.1 м3/чел</td>
+            <td>33.86 грн.</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Газ</td>
+            <td>6.88 грн. - 1м3</td>
+            <td>4.4 м3/чел</td>
+            <td>30.28 грн.</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Вывоз мусора</td>
+            <td></td>
+            <td>11.69 грн./чел</td>
+            <td>11.69 грн.</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Домофон</td>
+            <td>10</td>
+            <td></td>
+            <td>10 грн.</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Кабельное ТВ, интернет</td>
+            <td>120</td>
+            <td></td>
+            <td>120 грн.</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td colspan="3">Итого</td>
+            <td>1250 грн. - зимой<br>
+                650 грн. - летом
+            </td>
+        </tr>
+
+    </table>
+
+{% endblock %}
+
+

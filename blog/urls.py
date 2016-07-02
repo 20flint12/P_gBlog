@@ -4,8 +4,8 @@ from django.conf.urls import url
 from . import views
 
 
-
 urlpatterns = [
+
     url(r'^$', views.post_list, name='post_list'),
     url(r'^post/(?P<pk>[0-9]+)/$', views.post_detail, name='post_detail'),
     url(r'^post/new/$', views.post_new, name='post_new'),
@@ -23,7 +23,6 @@ urlpatterns = [
     url(r'^plan/$',     views.plan,     name='plan'),   # building plan
     url(r'^adv/$',      views.adv,      name='adv'),    # advertising
 
-
+    url(r'^rates/$',    views.rates,    name='rates'),  # rates
 
 ]
-

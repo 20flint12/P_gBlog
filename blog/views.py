@@ -90,6 +90,7 @@ def comment_approve(request, pk):
     comment.approve()
     return redirect('blog.views.post_detail', pk=comment.post.pk)
 
+
 @login_required
 def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
@@ -120,11 +121,12 @@ def plan(request):
     return render(request, 'templates/static_pages/building_plan.html', {'flats': flats, 'floors': floors})
 
 
-
 def adv(request):
-
     return render(request, 'templates/static_pages/building_adv.html')
 
+
+def rates(request):
+    return render(request, 'templates/static_pages/rates.html')
 
 
 
