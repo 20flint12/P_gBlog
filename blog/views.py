@@ -129,6 +129,9 @@ def rates(request):
     return render(request, 'templates/static_pages/rates.html')
 
 
+def deputy(request):
+    return render(request, 'templates/static_pages/deputy.html')
+
 
 
 

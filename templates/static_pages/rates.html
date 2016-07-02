@@ -4,30 +4,33 @@
 {% block content %}
 
     <style>
-    table {
-        align: center;
-        border-collapse: collapse;
-        bordercolor: green;
-        bgcolor: yellow;
-    }
+        table {
+            align: center;
+            border-collapse: collapse;
+            bordercolor: green;
+            bgcolor: yellow;
+            width: 100%;
+        }
 
-    th, td {
-        padding: 8px;
-        style="text-align:center"
-    }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {background-color: #f2f2f2}
     </style>
 
     <br>
     <h1>Комунальные тарифы на 1 июля 2016 года.</h1>
     <br>
 
-    <table border="8" width="100%">
+    <table border="4">
         <tr>
             <th>Номер</th>
-            <th style="text-align:center">Услуга</th>
-            <th style="text-align:center" >Тариф</th>
-            <th style="text-align:center">Норма</th>
-            <th style="text-align:center">Сумма</th>
+            <th>Услуга</th>
+            <th>Тариф</th>
+            <th>Норма</th>
+            <th>Сумма</th>
         </tr>
         <tr>
             <!--<td rowspan="2">Квартплата</td>-->
@@ -106,8 +109,7 @@
         </tr>
 
         <tr>
-            <td></td>
-            <td colspan="3">Итого</td>
+            <td colspan="4">Итого</td>
             <td>1250 грн. - зимой<br>
                 650 грн. - летом
             </td>

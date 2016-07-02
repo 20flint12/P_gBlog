@@ -56,32 +56,33 @@ h1, h2, h3, h4 {
     Navigation
 ------------------
 */
-
+/*
 nav {
   margin: 20px 0;
 }
-
+*/
 /*
 nav .logo {
   float: left;
 }
 */
 
-
+/*
 nav ul {
   float: left;
   list-style-type: none;
   margin-bottom: 0;
   padding-left: 0;
 }
+*/
 
-
-
+/*
 nav ul li {
   float: left;
   margin-left: 20px;
-  /*line-height: 68px;*/
+  line-height: 68px;
 }
+*/
 /*
 nav ul li a {
   color: #f7921d;
@@ -92,9 +93,11 @@ nav ul li a {
   font-size: 12px;
 }
 */
+
 nav ul li a:hover {
   color: #f7921d;
 }
+
 /*
 nav ul li:first-child {
   margin-left: 0;

@@ -3,6 +3,22 @@
 
 {% block content %}
 
+    <style>
+        table {
+            align: center;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+            align="center"
+        }
+
+        tr:nth-child(even) {background-color: #f2f2f2}
+    </style>
+
+
     <div class="container without-background" id="flatpage">
         <div id="value" class="row">
             <br class="col-md-12">
@@ -19,38 +35,38 @@
             {% endcomment %}
 
 
-            <table align="center" border="4" width="100%">
+            <table border="2">
 
             <tr>
-                <th style="text-align:center" colspan="2">Стояк1</th>
-                <th style="text-align:center" colspan="4">Стояк2</th>
-                <th style="text-align:center" colspan="4">Стояк3</th>
-                <th style="text-align:center" colspan="4">Стояк4</th>
-                <th style="text-align:center" colspan="4">Стояк5</th>
-                <th style="text-align:center" colspan="4">Стояк6</th>
-                <th style="text-align:center" colspan="4">Стояк7</th>
-                <th style="text-align:center" colspan="2">Стояк8</th>
+                <th colspan="2">Стояк1</th>
+                <th colspan="4">Стояк2</th>
+                <th colspan="4">Стояк3</th>
+                <th colspan="4">Стояк4</th>
+                <th colspan="4">Стояк5</th>
+                <th colspan="4">Стояк6</th>
+                <th colspan="4">Стояк7</th>
+                <th colspan="2">Стояк8</th>
             </tr>
 
             {% for item in flats %}
 
                 {% if forloop.first %}
                     <tr padding="5px">
-                    <td align="center" padding="5px">КухняЛев</td>
+                    <td>КухняЛев</td>
                 {% endif %}
 
-                <td align="center" padding="15px">{{ item }}</td>
+                <td>{{ item }}</td>
 
                 {% if forloop.counter|divisibleby:floors %}
 
-                    <td align="center" padding="5px">КухняПрав</td>
+                    <td padding="5px">КухняПрав</td>
 
                     </tr>
                     <tr padding="5px">
 
                     {% if forloop.last %}
                     {% else %}
-                        <td align="center" padding="5px">КухняЛев</td>
+                        <td>КухняЛев</td>
                     {% endif %}
 
                 {% endif %}

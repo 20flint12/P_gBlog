@@ -25,4 +25,7 @@ urlpatterns = [
 
     url(r'^rates/$',    views.rates,    name='rates'),  # rates
 
+    url(r'^deputy/$',   views.deputy,   name='deputy'), # people's deputy
+
+
 ]
