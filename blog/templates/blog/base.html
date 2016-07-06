@@ -46,8 +46,8 @@
 
       ga('create', 'UA-80185258-1', 'auto');
       ga('send', 'pageview');
-
     </script>
+
 
 </head>
 <body>
@@ -62,7 +62,6 @@
         {% endif %}
 
         <h1><a href="{% url 'blog.views.post_list' %}">
-            <!--Блог-сайт дома по адресу Харьков, ул.Плехановская, 121-->
             Блог-сайт дома по адресу Харьков, пр.Гагарина,174
         </a></h1>
     </div>
@@ -76,8 +75,8 @@
     <div class="content">
         <div class="row">
             <div class="col-md-8">
-            {% block content %}
-            {% endblock %}
+                {% block content %}
+                {% endblock %}
             </div>
         </div>
     </div>

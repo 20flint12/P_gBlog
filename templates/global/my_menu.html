@@ -1,26 +1,18 @@
 {% load staticfiles %}
 
+
 <div class="container">
+
+
     <div class="row">
         <div class="col-md-12">
-                <nav role="navigation" class="clearfix">
-                <!--<div class="logo">-->
-                    <!--<a href="/">-->
-                        <!--<img src="{% static 'img/global/logo.png' %}" alt="Django Girls" />-->
-                    <!--</a>-->
-                <!--</div>-->
-
+            <nav role="navigation" class="clearfix">
                 <ul>
-                    <!--<li><a href="https://www.patreon.com/djangogirls">Support us</a></li>-->
                     <li><a href="{% url 'post_list' %}">Список обсуждений</a></li>
                     <li><a href="{% url 'services' %}">Полезные телефоны</a></li>
-                    <li><a href="{% url 'plan' %}">План здания</a></li>
-                    <li><a href="{% url 'services' %}">Полезная информация</a></li>
-                    <li><a href="{% url 'rates' %}">Тарифы ЖКХ</a></li>
-                    <!--<li><a href="{% url 'deputy' %}">Страница депутата</a></li>-->
-                    <li><a href="http://www.city.kharkov.ua/ru/gorodskaya-vlast/gorodskoj-sovet/deputatyi/vasilenko-aleksandr-ivanovich.html">Страница депутата</a></li>
+                    <!--<li><a href="{% url 'plan' %}">План здания</a></li>-->
+                    <li><a href="http://www.city.kharkov.ua/ru/gorodskaya-vlast/gorodskoj-sovet/deputatyi/zinchenko-vladimir-anatolievich.html">Страница депутата</a></li>
                     <li><a href="{% url 'contacts' %}">Контакты</a></li>
-                    <li><a href="{% url 'adv' %}">Рекламные объявления</a></li>
                 </ul>
             </nav>
         </div>

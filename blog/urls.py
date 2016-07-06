@@ -21,9 +21,9 @@ urlpatterns = [
     url(r'^services/$', views.services, name='services'),
     url(r'^contacts/$', views.contacts, name='contacts'),
     url(r'^plan/$',     views.plan,     name='plan'),   # building plan
-    url(r'^adv/$',      views.adv,      name='adv'),    # advertising
+    # url(r'^adv/$',      views.adv,      name='adv'),    # advertising
 
-    url(r'^rates/$',    views.rates,    name='rates'),  # rates
+    # url(r'^rates/$',    views.rates,    name='rates'),  # rates
     url(r'^deputy/$',   views.deputy,   name='deputy'), # people's deputy
 
 ]
