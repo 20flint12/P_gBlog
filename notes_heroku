@@ -71,4 +71,5 @@ git push heroku_buildings   development:master
 
 
 
-
+heroku git:remote -a heroku_gagarina174
+git push heroku_gagarina174  gagarina174:master
