@@ -89,7 +89,7 @@ def add_comment_to_post(request, pk):
             email_subject = unicode("[" + remote_ip + "] " + comment.post.title)
             email_body = unicode(comment.author + "\n <b>says:</b> \n" + comment.text)
             email_body = email_body.encode('ascii', 'xmlcharrefreplace')
-            print "comment.post=", email_subject, email_body
+            # print "comment.post=", email_subject, email_body
             email.my_email(email_subject, email_body, ["20flint12@gmail.com"])
             # *****************************************************************
 
