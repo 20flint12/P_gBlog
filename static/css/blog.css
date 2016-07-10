@@ -60,45 +60,31 @@ h1, h2, h3, h4 {
 nav {
   margin: 20px 0;
 }
-*/
-/*
 nav .logo {
   float: left;
 }
-*/
-
-/*
 nav ul {
-  float: left;
+  float: right;
   list-style-type: none;
   margin-bottom: 0;
   padding-left: 0;
 }
-*/
-
-/*
 nav ul li {
   float: left;
-  margin-left: 20px;
+  margin-left: 40px;
   line-height: 68px;
 }
-*/
-/*
 nav ul li a {
   color: #f7921d;
   font-family: Roboto;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 15px;
 }
-*/
-
 nav ul li a:hover {
   color: #f7921d;
 }
-
-/*
 nav ul li:first-child {
   margin-left: 0;
 }
