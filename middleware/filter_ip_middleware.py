@@ -9,7 +9,7 @@ class FilterIPMiddleware(object):
         allowed_ips = ['192.168.1.1', '127.0.0.1']  # Authorized ip's
         ip = request.META.get('REMOTE_ADDR')  # Get client IP
         REMOTE_ADDR_REQ = ip
-        print "REMOTE_ADDR_REQ=", REMOTE_ADDR_REQ
+        # print "REMOTE_ADDR_REQ=", REMOTE_ADDR_REQ
 
         if ip not in allowed_ips:
             # raise Http403 # If user is not allowed raise Error
