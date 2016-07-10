@@ -66,9 +66,10 @@ http://stackoverflow.com/questions/11864580/rendering-a-list-as-a-2-column-html-
 
 
 heroku login
-git push heroku_plekhanovskaya121  development:master
+git push heroku_plekhanovskaya121  plekhanovskaya121:master
 git push heroku_buildings   development:master
 
+git push heroku plekhanovskaya121:master
 
 
 
