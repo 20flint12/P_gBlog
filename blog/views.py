@@ -8,6 +8,8 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 
+from . import email_DJG as email
+
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -78,6 +80,16 @@ def add_comment_to_post(request, pk):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
+
+            ip = request.META.get('REMOTE_ADDR')  # Get client IP
+            remote_ip = ip
+            print "views remote_ip=", remote_ip
+
+            email_subject = "[" + remote_ip + "] " + comment.post.title
+            email_body = comment.author + "\n <b>says:</b> \n" + comment.text
+            print "comment.post=", email_subject, email_body
+            email.my_email(email_subject, email_body, ["20flint12@gmail.com"])
+
             return redirect('blog.views.post_detail', pk=post.pk)
     else:
         form = CommentForm()

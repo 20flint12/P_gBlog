@@ -26,8 +26,8 @@ print "BASE_DIR=", BASE_DIR, "vs ", os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'cumey3t!e_h-smbl91b&%8b#wd9f)c!vda9_%425$_g6urskx_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 # DEBUG = os.getenv('DJANGO_DEBUG') != 'FALSE'
 print "DEBUG=", DEBUG
 
@@ -133,7 +133,6 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'ru-ru'
 
-#TIME_ZONE = 'UTC'
 TIME_ZONE = 'Europe/Moscow'
 TIME_ZONE = 'Europe/Kiev'
 
@@ -150,4 +149,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+# =============================================================================
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'astroreminder@gmail.com'
+DEFAULT_FROM_EMAIL = 'astroreminder@gmail.com'
+SERVER_EMAIL = 'astroreminder@gmail.com'
+EMAIL_HOST_PASSWORD = '95dd2d30'
+# =============================================================================
+
 
