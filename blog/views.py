@@ -17,7 +17,7 @@ from . import email_DJG as email
 def post_list(request):
     posts_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
 
-    paginator = Paginator(posts_list, 10)
+    paginator = Paginator(posts_list, 3)
 
     page = request.GET.get('page')
     try:
