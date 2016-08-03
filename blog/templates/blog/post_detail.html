@@ -31,9 +31,9 @@
     </div>
 
     <hr>
-    <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Оставить свой коментарий</a>
+    <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Оrrставить свой коментарий</a>
 
-    {% for comment in post.comments.all %}
+    {% for comment in comments %}
         {% if user.is_authenticated or comment.approved_comment %}
         <div class="comment">
             <div class="date">
@@ -50,6 +50,26 @@
     {% empty %}
         <p>Пока не было коментариев :(</p>
     {% endfor %}
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if comments.has_previous %}
+                <a href="?page={{ comments.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Страница {{ comments.number }} из {{ comments.paginator.num_pages }}
+            </span>
+
+            {% if comments.has_next %}
+                <a href="?page={{ comments.next_page_number }}">next</a>
+            {% endif %}
+        </span>
+    </div>
+
+
+
+
 
 {% endblock %}
 

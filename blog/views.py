@@ -51,10 +51,23 @@ def post_list(request):
 # *****************************************************************************
 
 
-
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+    comments_list = post.comments.all()
+
+    paginator = Paginator(comments_list, 4)
+
+    page = request.GET.get('page')
+    try:
+        comments = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        comments = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        comments = paginator.page(paginator.num_pages)
+
+    return render(request, 'blog/post_detail.html', {'post': post, 'comments': comments})
 
 
 @login_required
