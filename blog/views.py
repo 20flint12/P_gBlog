@@ -32,30 +32,12 @@ def post_list(request):
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 
-# *****************************************************************************
-# def listing(request):
-#     contact_list = Contacts.objects.all()
-#     paginator = Paginator(contact_list, 25) # Show 25 contacts per page
-#
-#     page = request.GET.get('page')
-#     try:
-#         contacts = paginator.page(page)
-#     except PageNotAnInteger:
-#         # If page is not an integer, deliver first page.
-#         contacts = paginator.page(1)
-#     except EmptyPage:
-#         # If page is out of range (e.g. 9999), deliver last page of results.
-#         contacts = paginator.page(paginator.num_pages)
-#
-#     return render(request, 'list.html', {'contacts': contacts})
-# *****************************************************************************
-
-
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    comments_list = post.comments.all()
+    # comments_list = post.comments.all().order_by('created_date')
+    comments_list = post.comments.all().filter(created_date__lte=timezone.now()).order_by('created_date')
 
-    paginator = Paginator(comments_list, 4)
+    paginator = Paginator(comments_list, 10)
 
     page = request.GET.get('page')
     try:
