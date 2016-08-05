@@ -15,9 +15,9 @@ from . import email_DJG as email
 
 
 def post_list(request):
-    posts_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 
-    paginator = Paginator(posts_list, 3)
+    paginator = Paginator(posts_list, 10)
 
     page = request.GET.get('page')
     try:
@@ -85,7 +85,7 @@ def post_edit(request, pk):
 
 @login_required
 def post_draft_list(request):
-    posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
+    posts = Post.objects.filter(published_date__isnull=True).order_by('-created_date')
     return render(request, 'blog/post_draft_list.html', {'posts': posts})
 
 
