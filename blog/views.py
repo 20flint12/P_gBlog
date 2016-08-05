@@ -8,17 +8,48 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render
+
 from . import email_DJG as email
 
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+
+    paginator = Paginator(posts_list, 3)
+
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        posts = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        posts = paginator.page(paginator.num_pages)
+
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+    # comments_list = post.comments.all().order_by('created_date')
+    comments_list = post.comments.all().filter(created_date__lte=timezone.now()).order_by('-created_date')
+
+    paginator = Paginator(comments_list, 10)
+
+    page = request.GET.get('page')
+    try:
+        comments = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        comments = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        comments = paginator.page(paginator.num_pages)
+
+    return render(request, 'blog/post_detail.html', {'post': post, 'comments': comments})
 
 
 @login_required
@@ -79,6 +110,7 @@ def add_comment_to_post(request, pk):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
+            comment.approved_comment = True
             comment.save()
 
             ip = request.META.get('REMOTE_ADDR')  # Get client IP
@@ -97,6 +129,18 @@ def add_comment_to_post(request, pk):
     else:
         form = CommentForm()
     return render(request, 'blog/add_comment_to_post.html', {'form': form})
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @login_required
