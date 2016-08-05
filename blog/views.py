@@ -35,7 +35,7 @@ def post_list(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     # comments_list = post.comments.all().order_by('created_date')
-    comments_list = post.comments.all().filter(created_date__lte=timezone.now()).order_by('created_date')
+    comments_list = post.comments.all().filter(created_date__lte=timezone.now()).order_by('-created_date')
 
     paginator = Paginator(comments_list, 10)
 
@@ -110,6 +110,7 @@ def add_comment_to_post(request, pk):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
+            comment.approved_comment = True
             comment.save()
 
             ip = request.META.get('REMOTE_ADDR')  # Get client IP
