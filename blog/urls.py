@@ -27,4 +27,7 @@ urlpatterns = [
 
     url(r'^deputy/$',   views.deputy,   name='deputy'), # people's deputy
 
+    url(r'^poll/$', views.poll, name='poll'),  # people's poll
+
+
 ]

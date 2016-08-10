@@ -192,6 +192,8 @@ def deputy(request):
     return render(request, 'templates/static_pages/deputy.html')
 
 
+def poll(request):
+    return render(request, 'templates/static_pages/poll.html')
 
 
 
