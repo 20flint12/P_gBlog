@@ -196,8 +196,9 @@ def poll(request):
     return render(request, 'templates/static_pages/poll.html')
 
 
-
-
+@login_required
+def cameras(request):
+    return render(request, 'templates/static_pages/cameras.html')
 
 
 
