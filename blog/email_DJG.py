@@ -12,7 +12,7 @@ def my_email(str_subject, str_body, list_emails):
     try:
         send_mail(str_subject, str_body,
                   '20notifier16@gmail.com',
-                  list_emails,  # ['20flint12@gmail.com','380688845064@sms.kyivstar.net'],
+                  list_emails,
                   fail_silently=False,
                   html_message=str_body)
     except:

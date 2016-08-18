@@ -25,11 +25,10 @@ urlpatterns = [
 
     url(r'^rates/$',    views.rates,    name='rates'),  # rates
 
-    url(r'^cameras/$', views.cameras, name='cameras'),  # cameras
-
     url(r'^deputy/$',   views.deputy,   name='deputy'), # people's deputy
 
     url(r'^poll/$', views.poll, name='poll'),  # people's poll
 
+    url(r'^cameras/$', views.cameras, name='cameras'),  # cameras
 
 ]
