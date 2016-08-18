@@ -11,7 +11,7 @@ SERVER_NAME = 'Unknown server'
 # Server ip
 SERVER_IP = 'localhost'
 # Mail to addresses
-EMAIL_LIST = ["20flint12@gmail.com"]
+EMAIL_LIST = ["20lustrat14@gmail.com"]
 
 
 print "HOSTNAME   :", HOSTNAME
