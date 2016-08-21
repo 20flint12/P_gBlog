@@ -158,7 +158,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = '20notifier16@gmail.com'
 DEFAULT_FROM_EMAIL = '20notifier16@gmail.com'
-SERVER_EMAIL = 'astroreminder@gmail.com'
+SERVER_EMAIL = '20notifier16@gmail.com'
 EMAIL_HOST_PASSWORD = '95dd2d88'
 # =============================================================================
 
