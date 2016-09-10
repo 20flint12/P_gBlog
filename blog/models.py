@@ -7,6 +7,7 @@ class Post(models.Model):
     title = models.CharField(max_length=50)
     text = models.TextField()
     link = models.TextField(default="")
+    link.blank = True
     created_date = models.DateTimeField(
             default=timezone.now)
     published_date = models.DateTimeField(
@@ -25,6 +26,8 @@ class Comment(models.Model):
     post = models.ForeignKey('blog.Post', related_name='comments')
     author = models.CharField(max_length=50)
     text = models.TextField()
+    html = models.TextField(default="")
+    html.blank = True
     created_date = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)
 
