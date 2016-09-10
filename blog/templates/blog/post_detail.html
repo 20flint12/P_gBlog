@@ -2,6 +2,8 @@
 
 {% block content %}
 
+<div class="container">
+
     <div class="post">
 
         {% if user.is_authenticated %}
@@ -23,7 +25,6 @@
 
         {% autoescape off %}
             {% if post.link %}
-                <br>
                 {{ post.link|linebreaks }}
             {% endif %}
         {% endautoescape %}
@@ -49,6 +50,13 @@
             </div>
             <strong>{{ comment.author }}</strong>
             <p>{{ comment.text|linebreaks }}</p>
+
+            {% autoescape off %}
+                {% if comment.html %}
+                    {{ comment.html|linebreaks }}
+                {% endif %}
+            {% endautoescape %}
+
         </div>
         {% endif %}
     {% empty %}
@@ -71,7 +79,7 @@
         </span>
     </div>
 
-
+</div>
 
 
 
