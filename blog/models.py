@@ -17,8 +17,8 @@ class Post(models.Model):
         self.published_date = timezone.now()
         self.save()
 
-    def __str__(self):
     # def __unicode__(self):
+    def __str__(self):
         return self.title.encode('utf8')
 
 
@@ -36,8 +36,34 @@ class Comment(models.Model):
         self.save()
 
     def __str__(self):
-    # def __unicode__(self):
         return self.text.encode('utf8')
 
     def approved_comments(self):
         return self.comments.filter(approved_comment=True)
+
+
+class Ad(models.Model):
+    author = models.ForeignKey('auth.User')
+    title = models.CharField(max_length=50, default='Title')
+    text = models.TextField()
+    html_code = models.TextField(default="")
+    html_code.blank = True
+
+    # created_date = models.DateTimeField(default=timezone.now)
+    # approved_ad = models.BooleanField(default=False)
+    created_date = models.DateTimeField(default=timezone.now)
+    published_date = models.DateTimeField(blank=True, null=True)
+
+    def approve(self):
+        self.approved_ad = True
+        self.save()
+
+    def __str__(self):
+        return self.text.encode('utf8')
+
+    # def approved_ads(self):
+    #     return self.comments.filter(approved_ads=True)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()

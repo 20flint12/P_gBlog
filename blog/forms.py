@@ -1,6 +1,7 @@
 
 from django import forms
-from .models import Post, Comment
+from .models import Post, Comment, Ad
+
 
 class PostForm(forms.ModelForm):
 
@@ -15,3 +16,9 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ('author', 'text', 'html')
 
+
+class AdForm(forms.ModelForm):
+
+    class Meta:
+        model = Ad
+        fields = ('title', 'text', 'html_code')
