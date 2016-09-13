@@ -42,12 +42,12 @@ class Comment(models.Model):
         return self.comments.filter(approved_comment=True)
 
 
-class Ad(models.Model):
+class Advert(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=50, default='Title')
     text = models.TextField()
-    html_code = models.TextField(default="")
-    html_code.blank = True
+    html = models.TextField(default="")
+    html.blank = True
 
     # created_date = models.DateTimeField(default=timezone.now)
     # approved_ad = models.BooleanField(default=False)

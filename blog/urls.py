@@ -27,5 +27,5 @@ urlpatterns = [
 
     url(r'^deputy/$',   views.deputy,   name='deputy'), # people's deputy
 
-    url(r'^ads/$', views.ad_list, name='ad_list'),
+    url(r'^adverts/$', views.advert_list, name='advert_list'),
 ]

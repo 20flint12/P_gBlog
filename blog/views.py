@@ -1,9 +1,9 @@
 
 from django.shortcuts import render
 from django.utils import timezone
-from .models import Post, Comment, Ad
+from .models import Post, Comment, Advert
 from django.shortcuts import render, get_object_or_404
-from .forms import PostForm, CommentForm, AdForm
+from .forms import PostForm, CommentForm, AdvertForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
@@ -197,22 +197,22 @@ def deputy(request):
 
 
 
-def ad_list(request):
-    ads_list = Ad.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+def advert_list(request):
+    ads_list = Advert.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 
     paginator = Paginator(ads_list, 10)
 
     page = request.GET.get('page')
     try:
-        ads = paginator.page(page)
+        adverts = paginator.page(page)
     except PageNotAnInteger:
         # If page is not an integer, deliver first page.
-        ads = paginator.page(1)
+        adverts = paginator.page(1)
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
-        ads = paginator.page(paginator.num_pages)
+        adverts = paginator.page(paginator.num_pages)
 
-    return render(request, 'blog/ad_list.html', {'posts': ads})
+    return render(request, 'blog/advert_list.html', {'adverts': adverts})
 
 
 
