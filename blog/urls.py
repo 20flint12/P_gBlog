@@ -28,4 +28,6 @@ urlpatterns = [
     url(r'^deputy/$',   views.deputy,   name='deputy'), # people's deputy
 
     url(r'^adverts/$', views.advert_list, name='advert_list'),
+    url(r'^advert/(?P<pk>[0-9]+)/$', views.advert_detail, name='advert_detail'),
+
 ]
