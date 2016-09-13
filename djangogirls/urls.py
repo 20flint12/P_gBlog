@@ -50,9 +50,7 @@ urlpatterns = [
 
     url(r'', include('blog.urls')),
 
-
-
-
+    url(r'', include('advert.urls')),
 
 ]
 
