@@ -18,15 +18,31 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Advert',
+            name='Comment',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(default='Title', max_length=50)),
+                ('author', models.CharField(max_length=50)),
                 ('text', models.TextField()),
                 ('html', models.TextField(blank=True, default='')),
+                ('created_date', models.DateTimeField(default=django.utils.timezone.now)),
+                ('approved_comment', models.BooleanField(default=False)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Post',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('title', models.CharField(max_length=50)),
+                ('text', models.TextField()),
+                ('link', models.TextField(blank=True, default='')),
                 ('created_date', models.DateTimeField(default=django.utils.timezone.now)),
                 ('published_date', models.DateTimeField(blank=True, null=True)),
                 ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
+        ),
+        migrations.AddField(
+            model_name='comment',
+            name='post',
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to='blog.Post'),
         ),
     ]
