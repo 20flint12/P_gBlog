@@ -22,6 +22,7 @@ BUILD_SET = {
     "development":
         [
             '20flint12@gmail.com',
+            '',                     # color
             #-------------------------------
         ],
 }
