@@ -1,0 +1,40 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+<div class="container">
+
+    <div class="advert">
+
+        {% if user.is_authenticated %}
+
+            <div class="date">
+                {% if advert.published_date %}
+                    {{ advert.published_date }}
+                {% else %}
+                    <a class="btn btn-default" href="{% url 'advert.views.post_publish' pk=post.pk %}">Publish</a>
+                {% endif %}
+            </div>
+
+            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+        {% endif %}
+
+        <h1>{{ advert.title }}</h1>
+        <p>{{ advert.text|linebreaks }}</p>
+
+        {% autoescape off %}
+            {% if advert.link %}
+                {{ advert.link|linebreaks }}
+            {% endif %}
+        {% endautoescape %}
+
+    </div>
+
+    <hr>
+
+</div>
+{% endblock %}
+
+
+

@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from django.db import models
 from django.utils import timezone
 
@@ -17,8 +19,8 @@ class Post(models.Model):
         self.published_date = timezone.now()
         self.save()
 
-    def __str__(self):
     # def __unicode__(self):
+    def __str__(self):
         return self.title.encode('utf8')
 
 
@@ -36,8 +38,9 @@ class Comment(models.Model):
         self.save()
 
     def __str__(self):
-    # def __unicode__(self):
         return self.text.encode('utf8')
 
     def approved_comments(self):
         return self.comments.filter(approved_comment=True)
+
+

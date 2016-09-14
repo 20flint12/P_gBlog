@@ -24,15 +24,15 @@
     <div class="pagination">
         <span class="step-links">
             {% if posts.has_previous %}
-                <a href="?page={{ posts.previous_page_number }}">предыдущая</a>
+                <a href="?page={{ posts.previous_page_number }}"><h4>предыдущая</h4>></a>
             {% endif %}
 
             <span class="current">
-                &nbsp;  &nbsp;  &nbsp; Страница {{ posts.number }} из {{ posts.paginator.num_pages }} &nbsp;  &nbsp;  &nbsp;
+                &nbsp;  &nbsp;  &nbsp; <h4>Страница {{ posts.number }} из {{ posts.paginator.num_pages }}</h4> &nbsp;  &nbsp;  &nbsp;
             </span>
 
             {% if posts.has_next %}
-                <a href="?page={{ posts.next_page_number }}">следующая</a>
+                <a href="?page={{ posts.next_page_number }}"><h4>следующая</h4></a>
             {% endif %}
         </span>
     </div>

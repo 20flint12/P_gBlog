@@ -12,6 +12,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 
 from . import email_DJG as email
+from . import modules_DJG as mod
+conf = mod.CONFIG_DJG
 
 
 def post_list(request):
@@ -119,10 +121,10 @@ def add_comment_to_post(request, pk):
 
             # *****************************************************************
             email_subject = unicode("[" + remote_ip + "] " + comment.post.title)
-            email_body = unicode(comment.author + "\n <b>says:</b> \n" + comment.text + "\n <b>html_code:</b> \n" + comment.html )
+            email_body = unicode(comment.author + "\n <b>says:</b> \n" + comment.text + "\n <b>html:</b> \n" + comment.html )
             email_body = email_body.encode('ascii', 'xmlcharrefreplace')
             # print "comment.post=", email_subject, email_body
-            email.my_email(email_subject, email_body, ["plechan121@gmail.com"])
+            email.my_email(email_subject, email_body, [conf.BUILDING_EMAIL])
             # *****************************************************************
 
             return redirect('blog.views.post_detail', pk=post.pk)
@@ -199,13 +201,6 @@ def poll(request):
 @login_required
 def cameras(request):
     return render(request, 'templates/static_pages/cameras.html')
-
-
-
-
-
-
-
 
 
 

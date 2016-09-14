@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'advert',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -64,13 +65,11 @@ MIDDLEWARE_CLASSES = [
     'middleware.filter_ip_middleware.FilterIPMiddleware'
 ]
 
-# ROOT_URLCONF = 'mysite.urls'
 ROOT_URLCONF = 'djangogirls.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 'DIRS': [""],
         'DIRS': ["",
                  os.path.join(BASE_DIR, 'templates')
                  ],
@@ -161,5 +160,4 @@ DEFAULT_FROM_EMAIL = '20notifier16@gmail.com'
 SERVER_EMAIL = '20notifier16@gmail.com'
 EMAIL_HOST_PASSWORD = '95dd2d88'
 # =============================================================================
-
 

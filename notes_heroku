@@ -71,5 +71,10 @@ git push heroku_plekhanovskaya121  plekhanovskaya121:master
 
 git push heroku plekhanovskaya121:master
 
+-------------------------------------------
+drop schema public cascade;
+create schema public;
 
-
+drop table department, company;
+-------------------------------------------
+python manage.py sqlmigrate blog 0001
