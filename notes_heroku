@@ -86,3 +86,9 @@ watch heroku pg:info --app plechan121
 
 heroku pg:psql --app plechan121
 heroku pg:ps --app plechan121
+
+select column_name from information_schema.columns where table_name='blog_comment';
+
+http://www.java2s.com/Code/PostgreSQL/Table/ALTERTABLEemployeeADDCOLUMNdescriptiontext.htm
+ALTER TABLE blog_comment ADD COLUMN html text;
+select * from blog_comment;
