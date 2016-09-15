@@ -2,7 +2,17 @@
 
 
 
+
 {% block content %}
+<div class="container">
+
+    <br>
+    <p>Pекламные объявления нашего дома публикуются бесплатно на период 14 дней, после чего удаляются.<p>
+    <p>Для подачи объявления обращайтеcь к вебмастеру на почту:
+
+    <h4>plechan121@gmail.com</h4><p>
+    <br>
+
 
     {% for advert in adverts %}
         <div class="advert">
@@ -14,12 +24,11 @@
             <p>{{ advert.text|linebreaks }}</p>
             <p>{{ advert.text|truncatechars:400 }}</p>
 
-            {% comment "Optional note" %}
+{% comment "Optional note" %}
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ advert.title }}</a></h1>
-
             <a href="{% url 'blog.views.post_detail' pk=post.pk %}">Коментариев: {{ post.comments.count }}</a>
             <a href="{% url 'blog.views.post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
-            {% endcomment %}
+{% endcomment %}
 
         </div>
     {% endfor %}
@@ -41,7 +50,7 @@
         </span>
     </div>
 
-
+</div>
 {% endblock content %}
 
 
