@@ -55,6 +55,57 @@ def advert_detail(request, pk):
     return render(request, 'advert/advert_detail.html', {'advert': advert})
 
 
+@login_required
+def advert_new(request):
+    if request.method == "POST":
+        form = AdvertForm(request.POST)
+        if form.is_valid():
+            advert = form.save(commit=False)
+            advert.author = request.user
+            # post.published_date = timezone.now()
+            advert.save()
+            return redirect('advert.views.advert_detail', pk=advert.pk)
+    else:
+        form = AdvertForm()
+    return render(request, 'advert/advert_edit.html', {'form': form})
+
+
+@login_required
+def advert_edit(request, pk):
+    advert = get_object_or_404(Advert, pk=pk)
+    if request.method == "POST":
+        form = AdvertForm(request.POST, instance=advert)
+        if form.is_valid():
+            advert = form.save(commit=False)
+            advert.author = request.user
+            advert.published_date = timezone.now()
+            advert.save()
+            return redirect('advert.views.advert_detail', pk=advert.pk)
+    else:
+        form = AdvertForm(instance=advert)
+    return render(request, 'advert/advert_edit.html', {'form': form})
+
+
+@login_required
+def advert_draft_list(request):
+    adverts = Advert.objects.filter(published_date__isnull=True).order_by('-created_date')
+    return render(request, 'advert/adverts_draft_list.html', {'adverts': adverts})
+
+
+@login_required
+def advert_publish(request, pk):
+    advert = get_object_or_404(Advert, pk=pk)
+    advert.publish()
+    return redirect('advert.views.advert_detail', pk=pk)
+
+
+@login_required
+def advert_remove(request, pk):
+    advert = get_object_or_404(Advert, pk=pk)
+    advert.delete()
+    return redirect('advert.views.advert_list')
+
+
 
 
 

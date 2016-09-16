@@ -20,12 +20,11 @@
             <div class="date">
                 {{ advert.published_date }}
             </div>
-            <h1><a href="">{{ advert.title }}</a></h1>
+            <h1><a href="{% url 'advert_detail' pk=advert.pk %}">{{ advert.title }}</a></h1>
             <p>{{ advert.text|linebreaks }}</p>
             <p>{{ advert.text|truncatechars:400 }}</p>
 
 {% comment "Optional note" %}
-            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ advert.title }}</a></h1>
             <a href="{% url 'blog.views.post_detail' pk=post.pk %}">Коментариев: {{ post.comments.count }}</a>
             <a href="{% url 'blog.views.post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
 {% endcomment %}
