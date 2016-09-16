@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+
+{% comment "Optional note" %}
+{% extends 'advert/base_advert.html' %}
+{% endcomment %}
+
+<h2>233333333333333333333333333333333333333333333</h2>
+
+{% block content %}
+<div class="container">
+
+    <div class="page-header">
+        {% if user.is_authenticated %}
+            <a href="{% url 'advert_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            <a href="{% url 'advert_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+            <p class="top-menu">Hello {{ user.username }}<small>(<a href="{% url 'django.contrib.auth.views.logout' %}">Log out</a>)</small></p>
+        {% else %}
+            <a href="{% url 'django.contrib.auth.views.login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+        {% endif %}
+
+        <h1><a href="{% url 'advert.views.advert_list' %}">Список объявлений</a></h1>
+    </div>
+
+</div>
+{% endblock %}
+
+
+
