@@ -1,9 +1,13 @@
-{% extends 'blog/base.html' %}
 
-{% block content %}
+{% extends 'advert/base_advert.html' %}
+
+
+{% block adv_content %}
+
     <h1>Новое сообщение</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Создать</button>
     </form>
+
 {% endblock %}

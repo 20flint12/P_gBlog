@@ -1,12 +1,12 @@
 {% extends 'blog/base.html' %}
 
 {% comment "Optional note" %}
-{% extends 'advert/base_advert.html' %}
+    {% extends 'advert/base_advert.html' %}
 {% endcomment %}
 
-<h2>233333333333333333333333333333333333333333333</h2>
 
 {% block content %}
+
 <div class="container">
 
     <div class="page-header">
@@ -21,8 +21,11 @@
         <h1><a href="{% url 'advert.views.advert_list' %}">Список объявлений</a></h1>
     </div>
 
+    {% block adv_content %}{% endblock %}
+
 </div>
 {% endblock %}
+
 
 
 

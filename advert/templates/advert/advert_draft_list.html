@@ -1,6 +1,9 @@
-{% extends 'blog/base.html' %}
 
-{% block content %}
+{% extends 'advert/base_advert.html' %}
+
+
+{% block adv_content %}
+
     {% for post in posts %}
         <div class="post">
             <p class="date">created: {{ post.created_date|date:'d-m-Y' }}</p>
@@ -8,4 +11,5 @@
             <p>{{ post.text|truncatechars:200 }}</p>
         </div>
     {% endfor %}
+
 {% endblock %}
