@@ -15,5 +15,8 @@ urlpatterns = [
     url(r'^advert/drafts/$', views.advert_draft_list, name='advert_draft_list'),
     url(r'^advert/(?P<pk>\d+)/publish/$', views.advert_publish, name='advert_publish'),
     url(r'^advert/(?P<pk>\d+)/remove/$', views.advert_remove, name='advert_remove'),
+    url(r'^advert/(?P<pk>\d+)/check_exp/$', views.advert_check_expired, name='advert_check_exp'),
+
+    # url(r'^adverts/check_exp$', views.advert_check_expired, name='advert_check_exp'),
 
 ]

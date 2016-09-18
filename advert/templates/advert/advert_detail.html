@@ -21,6 +21,8 @@
             <a class="btn btn-default" href="{% url 'advert_remove' pk=advert.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
         {% endif %}
 
+        advert.check_expired
+
         <h1>{{ advert.title }}</h1>
         <p>{{ advert.text|linebreaks }}</p>
 

@@ -106,6 +106,12 @@ def advert_remove(request, pk):
     return redirect('advert.views.advert_list')
 
 
+@login_required
+def advert_check_expired(request, pk):
+    advert = get_object_or_404(Advert, pk=pk)
+    advert.check_expired();
+    return redirect('advert.views.advert_list')
+
 
 
 

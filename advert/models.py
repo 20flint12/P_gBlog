@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 
+import datetime
 from django.db import models
 from django.utils import timezone
 
@@ -29,3 +30,11 @@ class Advert(models.Model):
     def publish(self):
         self.published_date = timezone.now()
         self.save()
+
+    def check_expired(self):
+        delta_time = timezone.now() - self.published_date
+        print "delta_time=", delta_time
+        if delta_time >= datetime.timedelta(hours=10, days=5):
+            self.delete()
+            print "self.delete()="
+
