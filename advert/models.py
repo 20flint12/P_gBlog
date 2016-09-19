@@ -33,8 +33,10 @@ class Advert(models.Model):
 
     def check_expired(self):
         delta_time = timezone.now() - self.published_date
+        exp_period = datetime.timedelta(hours=10, days=0)
         print "delta_time=", delta_time
-        if delta_time >= datetime.timedelta(hours=10, days=5):
+        print "exp_period=", exp_period
+        if delta_time >= exp_period:
             self.delete()
             print "self.delete()="
 
